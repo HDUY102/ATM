@@ -177,7 +177,6 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
         }else{
             txtThongBao.setVisible(true);
             txtThongBao.setText("SỐ TIỀN TRONG TÀI KHOẢN HIỆN TẠI KHÔNG ĐỦ");
-            txtFocused=txtSoTien;
         }
     }
     @Override
@@ -211,6 +210,8 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
         txtSoTien.setText("");
         txtThongBao.setVisible(false);
         changeScreen(ScreenEnum.SCR_MENU);
+        txtSTKReceiver.requestFocus();
+        txtFocused=txtSTKReceiver;
     }
 
     private void doOkKey(){
