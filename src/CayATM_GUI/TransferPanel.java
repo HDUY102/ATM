@@ -20,7 +20,6 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
         return CayATM.chuyenTien(stkreceiver, money);
     }
     private void thucHienChuyenTien(long stkreceiver, long money){
-//        txtThongBao.setVisible(false);
         if(chuyenTien(stkreceiver,money)){
             CayATM.updateShowTransactionResultScreen(true);
             changeScreen(ScreenEnum.SCR_TRANSACTION_NOTIFICATION);
@@ -69,32 +68,29 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(txtThongBao))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(106, 106, 106)
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                                .addComponent(txtSTKReceiver, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtSoTien, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(txtThongBao))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18))
+                                .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtSTKReceiver, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(106, 106, 106)
+                                    .addComponent(jLabel3))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(41, 41, 41)
+                                    .addComponent(txtSoTien, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(18, 37, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,11 +101,11 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSTKReceiver, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSoTien, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(txtThongBao)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -124,15 +120,15 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -162,23 +158,26 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
     private void myInits(){
        txtFocused = txtSTKReceiver;
     }
-    private void takeTransaction(){
+    private void takeTransferTransaction(){
         long idSTK = CayATM.currentCard.getIdSTK();
         if(CayATM.trans.ktSoTien(idSTK)>=Long.parseLong(txtSoTien.getText())){
             thucHienChuyenTien(Long.parseLong(txtSTKReceiver.getText()),Long.parseLong(txtSoTien.getText()));
+            long currentTransactionId = Transaction.nextTransactionId;
+            List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
+            TransactionInfo currentTransactionInfo;
+        
+            for(TransactionInfo trans: transactionInfos){
+                if(trans.getIdTransaction() == currentTransactionId){
+                    currentTransactionInfo = trans;
+                    break;
+                }
+            }
+            txtSTKReceiver.setText("");
+            txtSoTien.setText("");
         }else{
             txtThongBao.setVisible(true);
             txtThongBao.setText("SỐ TIỀN TRONG TÀI KHOẢN HIỆN TẠI KHÔNG ĐỦ");
-        }
-        long currentTransactionId = Transaction.nextTransactionId;
-        List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
-        TransactionInfo currentTransactionInfo = null;
-        
-        for(TransactionInfo trans: transactionInfos){
-            if(trans.getIdTransaction() == currentTransactionId-2){
-                currentTransactionInfo = trans;
-                break;
-            }
+            txtFocused=txtSoTien;
         }
     }
     @Override
@@ -215,13 +214,8 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
     }
 
     private void doOkKey(){
-        takeTransaction();
-//        txtSoTien.getText();
-//        txtSTKReceiver.getText();
-//        thuchienChuyenTien(Long.parseLong(txtSTKReceiver.getText()),Long.parseLong(txtSoTien.getText()));
-        changeScreen(ScreenEnum.SCR_TRANSACTION_NOTIFICATION);
-        txtSTKReceiver.setText("");
-        txtSoTien.setText("");
+        takeTransferTransaction();
+        txtFocused=txtSTKReceiver;
     }
 
     private void doClearKey() {
