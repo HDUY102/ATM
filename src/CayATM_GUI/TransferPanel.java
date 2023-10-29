@@ -19,7 +19,7 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
     private boolean chuyenTien(long stkreceiver,long money){
         return CayATM.chuyenTien(stkreceiver, money);
     }
-    private void thuchienChuyenTien(long stkreceiver, long money){
+    private void thucHienChuyenTien(long stkreceiver, long money){
 //        txtThongBao.setVisible(false);
         if(chuyenTien(stkreceiver,money)){
             CayATM.updateShowTransactionResultScreen(true);
@@ -165,7 +165,7 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
     private void takeTransaction(){
         long idSTK = CayATM.currentCard.getIdSTK();
         if(CayATM.trans.ktSoTien(idSTK)>=Long.parseLong(txtSoTien.getText())){
-            thuchienChuyenTien(Long.parseLong(txtSTKReceiver.getText()),Long.parseLong(txtSoTien.getText()));
+            thucHienChuyenTien(Long.parseLong(txtSTKReceiver.getText()),Long.parseLong(txtSoTien.getText()));
         }else{
             txtThongBao.setVisible(true);
             txtThongBao.setText("SỐ TIỀN TRONG TÀI KHOẢN HIỆN TẠI KHÔNG ĐỦ");
