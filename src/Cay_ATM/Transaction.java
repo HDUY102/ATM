@@ -69,6 +69,7 @@ public class Transaction {
           if(!rutTien(idSTK1,idSTK2,soTien,content)){
              return false;
           }
+          nextTransactionId --;
           if(!napTien(idSTK2,idSTK2,soTien,content)){
              return false;
           }
@@ -90,8 +91,6 @@ public class Transaction {
     
     //Lịch sử giao dịch
     public List<TransactionInfo> xemLichSu(long idstk){
-        //lấy stk
-        STK stk=getSTK(idstk);
         return bankDB.getTransactionInfoBySTK(idstk);
     }
     /***

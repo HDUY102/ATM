@@ -108,9 +108,9 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(txtThongBao)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPrevious, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -162,16 +162,6 @@ public class TransferPanel extends javax.swing.JPanel implements IKeyCodeObserve
         long idSTK = CayATM.currentCard.getIdSTK();
         if(CayATM.trans.ktSoTien(idSTK)>=Long.parseLong(txtSoTien.getText())){
             thucHienChuyenTien(Long.parseLong(txtSTKReceiver.getText()),Long.parseLong(txtSoTien.getText()));
-            long currentTransactionId = Transaction.nextTransactionId;
-            List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
-            TransactionInfo currentTransactionInfo;
-        
-            for(TransactionInfo trans: transactionInfos){
-                if(trans.getIdTransaction() == currentTransactionId){
-                    currentTransactionInfo = trans;
-                    break;
-                }
-            }
             txtSTKReceiver.setText("");
             txtSoTien.setText("");
         }else{

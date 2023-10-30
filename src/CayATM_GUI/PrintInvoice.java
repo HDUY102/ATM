@@ -165,7 +165,7 @@ public class PrintInvoice extends javax.swing.JPanel implements IKeyCodeObserver
         //b3: lấy thông tin transactioninfo theo stk hiện tại
         List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
         //b4: Lấy transactionInfo theo currentTransactionId
-        TransactionInfo currentTransactionInfo = null;
+        TransactionInfo currentTransactionInfo = null; 
         
         for(TransactionInfo trans: transactionInfos){
             if(trans.getIdTransaction() == currentTransactionId){

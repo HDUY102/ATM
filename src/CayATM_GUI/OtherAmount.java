@@ -189,17 +189,6 @@ public class OtherAmount extends javax.swing.JPanel implements IKeyCodeObserver{
                 txtThongBao.setVisible(true);
                 txtThongBao.setText("SỐ TIỀN TRONG TÀI KHOẢN HIỆN TẠI KHÔNG ĐỦ");
             }
-            long currentTransactionId = Transaction.nextTransactionId;
-            List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
-            TransactionInfo currentTransactionInfo = null;
-            
-            for(TransactionInfo trans: transactionInfos){
-                if(trans.getIdTransaction()!= currentTransactionId-1){
-                    currentTransactionInfo = trans;
-                    break;
-                }
-            }
-            
         }else{
             txtThongBao.setVisible(true);
             txtThongBao.setText("SỐ TIỀN PHẢI TRONG HẠN MỨC CHO PHÉP");

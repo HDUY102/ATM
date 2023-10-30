@@ -83,6 +83,4 @@ public class TransactionInfo {
     public void setIdTransaction(long idTransaction) {
         this.idTransaction = idTransaction;
     }
-
-    
 }
