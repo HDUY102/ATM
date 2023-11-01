@@ -137,7 +137,7 @@ public class CayATM extends javax.swing.JFrame{
         scrWithdraw=new WithdrawMoneyPanel();
         scrPinInput=new InputPinPanel();
         scrTransfer=new TransferPanel();
-        scrListTransactionHistory=new HistoryTransaction();
+        scrListTransactionHistory=new TransactionHistory();
         scrWithDrawOtherAmount=new OtherAmount();
         scrCheckAmount=new CheckSTK();
         scrTransactionNotification=new TransactionNotification(true);
@@ -231,6 +231,14 @@ public class CayATM extends javax.swing.JFrame{
         scrCheckAmount = new CheckSTK();
         pnlMainScreen.add(ScreenEnum.SCR_CHECK_AMOUNT.label, scrCheckAmount);
     }
+    public static void updateHistoryScreen(){
+        if(scrListTransactionHistory!=null){
+            pnlMainScreen.remove(scrListTransactionHistory);
+        }
+        scrListTransactionHistory = new TransactionHistory();
+        pnlMainScreen.add(ScreenEnum.SCR_LIST_TRANSACTION_HISTORY.label, scrListTransactionHistory);
+    }
+    
     public static void requestChangeScreen(ScreenEnum screen){
         cardLayout.show(pnlMainScreen,screen.label);
         setCurrentScreen(screen);
@@ -262,7 +270,7 @@ public class CayATM extends javax.swing.JFrame{
     private static MenuPanel scrMenu;
     private static InputPinPanel scrPinInput;
     private static TransferPanel scrTransfer;
-    private static HistoryTransaction scrListTransactionHistory;
+    private static TransactionHistory scrListTransactionHistory;
     private static OtherAmount scrWithDrawOtherAmount;
     private static CheckSTK scrCheckAmount;
     private static ChangePinCard scrNewPinInput;
