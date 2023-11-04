@@ -16,10 +16,6 @@ public class TransactionHistory extends javax.swing.JPanel implements IKeyCodeOb
         myInits();
     }
 
-    private static List<TransactionInfo> getHistory() {
-        return CayATM.lichSuGD();
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,7 +68,8 @@ public class TransactionHistory extends javax.swing.JPanel implements IKeyCodeOb
                 .addGap(12, 12, 12)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -101,63 +98,77 @@ public class TransactionHistory extends javax.swing.JPanel implements IKeyCodeOb
     // End of variables declaration//GEN-END:variables
 
     private void myInits() {
-        String[] columns = {"Mã", "Ngày", "Tiền", "ND"};
-//        DefaultTableModel tblModel=new DefaultTableModel(columns,0);
-        DefaultTableModel tblModel=new DefaultTableModel();
-        tblModel.setColumnIdentifiers(columns);
-        tblHistory.setModel(tblModel);
-        getDataTransactionHistory();
+        
+        Vector vctColumns = new Vector();
+        vctColumns.add("Mã");
+        vctColumns.add("Tiền");
+        vctColumns.add("Ngày");
+        vctColumns.add("ND");
+        Vector vctData = new Vector();
+        Vector vctRow1 = new Vector();
+        vctRow1.add("1");
+        vctRow1.add("Duy");
+        vctRow1.add("30/2/2023");
+        vctRow1.add("Rut Tien");
+        vctData.add(vctRow1);
+        DefaultTableModel tblModel = new DefaultTableModel(vctColumns, 0);
+//        tblModel.setColumnIdentifiers(columns);
+//        tblHistory.setModel(tblModel);
+        tblModel=getDataTransactionHistory(tblModel);
 //        DefaultTableModel tblModel1=new DefaultTableModel(Model,columns);
 //        TableModel tbl=tblHistory.getModel();
 //        DefaultTableModel dtmHistory = (DefaultTableModel) tbl;
 //        tblHistory.setModel(dtmHistory);
+//        
+//        tblHistory.setModel(tblModel);
 //        JScrollPane sp= new JScrollPane(tblHistory);
-//        sp.setBounds(0, 0, 490, 250);
+//        sp.setBounds(0, 90, 490, 200);
 //        this.add(sp);
-        tblModel.addTableModelListener(tblHistory);
-    }
-    
-    private void getDataTransactionHistory() {
-        String data[]=new String[4];
-        DefaultTableModel tbl = new DefaultTableModel();
-        long idSTK = CayATM.currentCard.getIdSTK();
-        List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
-        // Tiến hành đổ dữ liệu vào mảng data
-        if (transactionInfos != null) {
-            for (int i = 0; i < transactionInfos.size(); i++) {
-                TransactionInfo transInfo = transactionInfos.get(i);
-                data[0] = ""+transInfo.getIdTransaction();
-                data[1] = ""+transInfo.getNgayGD().toString();
-                data[2] = ""+transInfo.getSoTienGD();
-                data[3] = ""+transInfo.getNoiDung();
-                
-                tbl.addRow(data);
-            }
-            tblHistory.setModel(tbl);
-        }
+//        tblModel.addTableModelListener(tblHistory);
     }
 
-//    private String[][] getDataTransactionHistory() {
-//        String data[][]=null;
+//    private void getDataTransactionHistory() {
+//        Vector<Vector<Object>> data = new Vector<>();
 //        long idSTK = CayATM.currentCard.getIdSTK();
 //        List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
 //        // Tiến hành đổ dữ liệu vào mảng data
 //        if (transactionInfos != null) {
-//            TableModel tbl=tblHistory.getModel();
 //            for (int i = 0; i < transactionInfos.size(); i++) {
+//                Vector<Object> row = new Vector<>();
 //                TransactionInfo transInfo = transactionInfos.get(i);
-//                data[i][0] = ""+transInfo.getIdTransaction();
-//                data[i][1] = ""+transInfo.getNgayGD().toString();
-//                data[i][2] = ""+transInfo.getSoTienGD();
-//                data[i][3] = ""+transInfo.getNoiDung();
-//                
-//                tbl.addTableModelListener(data);
+//                row.add(transInfo.getIdTransaction());
+//                row.add(transInfo.getNgayGD().toString());
+//                row.add(transInfo.getSoTienGD());
+//                row.add(transInfo.getNoiDung());
+//
+//                data.add(row);
 //            }
-////            tblHistory.setModel(model);
 //        }
-//        return data;
 //    }
 
+    private DefaultTableModel getDataTransactionHistory(DefaultTableModel tblModel){
+        long idSTK = CayATM.currentCard.getIdSTK();
+        List<TransactionInfo> transactionInfos = CayATM.trans.xemLichSu(idSTK);
+        String transId="";
+        String transDay="";
+        String transMoney="";
+        String transType="";
+        // Tiến hành đổ dữ liệu vào mảng data
+        if (transactionInfos != null) {
+            for (int i = 0; i < transactionInfos.size(); i++) {
+                Vector<Object> row = new Vector<>();
+                TransactionInfo transInfo = transactionInfos.get(i);
+                transId = ""+transInfo.getIdTransaction();
+                transDay = ""+transInfo.getNgayGD().toString();
+                transMoney = ""+transInfo.getSoTienGD();
+                transType = ""+transInfo.getNoiDung();
+                Object [] data={transId,transDay,transMoney,transType};
+                tblModel.addRow(row);
+            }
+        }
+        return tblModel;
+    }
+    
     @Override
     public void updateKeyCodeStatus(KeyboardEnum keyCode) {
         switch (keyCode) {
